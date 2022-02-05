@@ -54,3 +54,47 @@ body {
   background: #6665ee;
   border-radius: 10px;
 }
+
+/* Create small bottom right part of pourcentage indicator box */
+.bar .progress-line span::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000;
+}
+
+/* Create box for pourcentage indicator */
+.bar .progress-line span::after {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  background: #000;
+  border-radius: 3px;
+}
+
+/* Add span content for each progress-line based on skill */
+.progress-line.html span::after {
+  content: "90%";
+}
+.progress-line.css span::after {
+  content: "60%";
+}
+.progress-line.javascript span::after {
+  content: "85%";
+}
+.progress-line.ruby span::after {
+  content: "50%";
+}
+.progress-line.mysql span::after {
+  content: "75%";
+}
