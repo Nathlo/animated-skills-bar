@@ -12,6 +12,7 @@ body {
   display: grid;
   place-items: center;
   height: 100%;
+  background: #6665ee;
 }
 
 .skills-bar {
@@ -36,6 +37,14 @@ body {
 .skills-bar .bar .info span {
   font-size: 17px;
   font-weight: 500;
+  opacity: 0;
+  animation: showText 0.5s 1s linear forwards;
+}
+
+@keyframes showText {
+  100% {
+    opacity: 1;
+  }
 }
 
 .skills-bar .bar .progress-line {
@@ -45,6 +54,9 @@ body {
   background: #f0f0f0;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.05),
     0px 1px 1px rgba(255, 255, 255, 0.8);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
 }
 
 .bar .progress-line span {
@@ -53,6 +65,32 @@ body {
   height: 100%;
   background: #6665ee;
   border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Adjust progress-line width to reflect pourcentage skill */
+.progress-line.html span {
+  width: 90%;
+}
+.progress-line.css span {
+  width: 60%;
+}
+.progress-line.javascript span {
+  width: 85%;
+}
+.progress-line.ruby span {
+  width: 50%;
+}
+.progress-line.mysql span {
+  width: 75%;
 }
 
 /* Create small bottom right part of pourcentage indicator box */
@@ -67,6 +105,8 @@ body {
   border-bottom-width: 0px;
   border-right-width: 0px;
   border-top-color: #000;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
 }
 
 /* Create box for pourcentage indicator */
@@ -82,7 +122,13 @@ body {
   border-radius: 3px;
 }
 
-/* Add span content for each progress-line based on skill */
+@keyframes showText2 {
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Add span pourcentage content for each progress-line */
 .progress-line.html span::after {
   content: "90%";
 }
